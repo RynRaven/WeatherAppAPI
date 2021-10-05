@@ -1,3 +1,5 @@
+const API_KEY ='d6e50ba138856be8b5668a250426b28d';
+
 const timeEl = document.getElementById('time');
 const dateEl = document.getElementById('date');
 const currentWeatherItemsEl = document.getElementById('current-weather-items');
@@ -21,5 +23,20 @@ setInterval (() => {
 
     dateEl.innerHTML = days[day] + ', ' + date+ ' ' + months[month];
 
-}, 1000)
+}, 1000);
+
+getWeatherData()
+function getWeatherData () {
+    navigator.geolocation.getCurrentPosition((success) => {
+        
+        let {latitude, longitude } = success.coords;
+
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
+    })
+}
+
 
