@@ -8,31 +8,43 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="main">
         <div class="current-info">
-            <div class="date-container">
-                <div class="time" id="time">
-                    12:30</div>
-                <div class="date" id="date">
-                    5th October</div>
-                <div class="others" id="current-weather-items">
-                    <div class="weather-item">
-                        <h3>Humidity</h3>
-                        <h3>90%</h3>
-                    </div>
-                    <div class="weather-item">
-                        <h3>Pressure</h3>
-                        <h3>90%</h3>
-                    </div>
-                    <div class="weather-item">
-                        <h3>Wind</h3>
-                        <h3>90%</h3>
-                    </div>
-                </div>
-            </div>
+
             <div class="place-container">
                 <div class="country" id="country">Latvia</div>
                 <div class="time-zone" id="time-zone">+2 GTM</div>
+            </div>
+
+            <div class="info-container">
+                <div class="temperature">
+                    15°C</div>
+                <div class="date" id="date">
+                    5th October</div>
+                <div class="time" id="time">
+                    12:30</div>
+                
+            </div> 
+
+            <div class="weather-container" id="current-weather-items">
+                <div class="weather-main weather-item">
+                    Description
+                </div>
+                <div class="humidity weather-item">
+                    Humidity
+                </div>
+                <div class="pressure weather-item">
+                    Pressure
+                </div>
+                <div class="wind weather-item">
+                    Wind
+                </div>
+                <div class="sunrise weather-item">
+                    Sunrise
+                </div>
+                <div class="sunset weather-item">
+                    Sunset
+                </div>
             </div>
         </div>
     </div>
@@ -79,6 +91,8 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script.js"></script>
 </body>
 </html>

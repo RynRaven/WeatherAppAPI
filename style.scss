@@ -15,63 +15,29 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-.container{
+.main{
     padding: 5rem 8rem;
-    color:rgb(0, 0, 0);
 
     .current-info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+        text-align: end;
 
-        .date-container{
-        font-weight: 200;
-
-            .time{
-                font-size: 70px;
-                font-weight: 400;
+        .info-container{
+            
+            .temperature{
+                font-size: 72px;
             }
+        }
 
-            .date{
-                font-size: 30px;
-                font-weight: 400;
-            }
-
-            .others{
+        .place-container{
+            font-size: 24px;
+        }
+        .weather-container{
                 display: flex;
                 flex-direction: column;
                 background: rgba(255, 255, 255, 0.555);
                 padding:20px;
-                border-radius: 10px;
-                margin: 10px 0;
-                border: 1px solid rgb(0, 0, 0);
-
-                .weather-item{
-                    display: flex;
-                    justify-content: space-between;
-
-                    h3{
-                        font-weight: 400;
-                    }
-                }
-        }
-        }
-
-        .place-container{
-            text-align: end;
-
-            .time-zone{
-                font-size: 24px;
-                font-weight: 200;
+                
             }
-
-            .country{
-                font-size: 46px;
-                font-weight: 400;
-            }
-        }
-
-        
     }
 }
 
@@ -86,6 +52,7 @@ body{
     align-items: center;
     justify-content: center;
     overflow-y: hidden;
+    height: 40vh;
 
     .today{
         display: flex;
@@ -153,10 +120,10 @@ body{
         }
     }
 }
-
+/*
 @media only screen and  (max-width:730px){
     
-    .container{
+    .main{
         padding: 20px;
     }
     
@@ -208,3 +175,4 @@ body{
         overflow-x: scroll;
     }
 }
+*/

@@ -41,36 +41,20 @@ function getWeatherData () {
 }
 
 function showWeatherData (data){
-    let {humidity, pressure, sunrise, sunset, wind_speed} = data.current;
+    const { sunrise , sunset , pressure , humidity , wind_speed } = data.current;
+    const { main } = data.current.weather[0];
+    const { timezone } = data;
 
-    timezone.innerHTML = data.timezone;
-    //countryEl.innerHTML = data.lat + 'N ' + data.lon+'E'
 
-    currentWeatherItemsEl.innerHTML = 
-    `<div class="weather-item">
-        <div>Humidity</div>
-        <div>${humidity}%</div>
-    </div>
-    <div class="weather-item">
-        <div>Pressure</div>
-        <div>${pressure}</div>
-    </div>
-    <div class="weather-item">
-        <div>Wind Speed</div>
-        <div>${wind_speed}</div>
-    </div>
-    <div class="weather-item">
-        <div>Sunrise</div>
-        <div>${sunrise}</div>
-    </div>
-    <div class="weather-item">
-        <div>Sunset</div>
-        <div>${sunset}</div>
-    </div>
+    document.querySelector('.weather-main').innerText = "Sky: " + main;
+    document.querySelector('.humidity').innerText = "Humidity: " + humidity + " %";
+    document.querySelector('.pressure').innerText = "Pressure: " + pressure + " mb";
+    document.querySelector('.wind').innerText = "Wind speed: " + wind_speed + "m/s";
+    document.querySelector('.sunrise').innerText = "Sunrise: " + window.moment(sunrise * 1000).format('HH:mm a');
+    document.querySelector('.sunset').innerText = "Sunset: " + window.moment(sunset * 1000).format('HH:mm a');
+
+    document.querySelector('.time-zone').innerText = "Timezone: " + timezone;
     
-    
-    `;
-
     let otherDayForcast = ''
     data.daily.forEach((day, idx) => {
         if(idx == 0){
@@ -90,11 +74,9 @@ function showWeatherData (data){
                 <div class="temp">Night - ${day.temp.night}&#176;C</div>
                 <div class="temp">Day - ${day.temp.day}&#176;C</div>
             </div>
-            
             `
         }
     })
-
 
     weatherForecastEl.innerHTML = otherDayForcast;
 }
