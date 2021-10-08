@@ -5,8 +5,8 @@ const dateEl = document.getElementById('date');
 const currentWeatherItemsEl = document.getElementById('current-weather-items');
 const timezone = document.getElementById('time-zone');
 const countryEl = document.getElementById('country');
+const forecastEl = document.getElementsByClassName('forecast-temperature');
 const weatherForecastEl = document.getElementById('weather-forecast');
-const currentTempEl = document.getElementById('current-temp');
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -44,7 +44,7 @@ function showWeatherData (data){
     const { sunrise , sunset , pressure , humidity , wind_speed } = data.current;
     const { main } = data.current.weather[0];
     const { timezone } = data;
-
+    const { temp } = data.current;
 
     document.querySelector('.weather-main').innerText = "Sky: " + main;
     document.querySelector('.humidity').innerText = "Humidity: " + humidity + " %";
@@ -54,29 +54,24 @@ function showWeatherData (data){
     document.querySelector('.sunset').innerText = "Sunset: " + window.moment(sunset * 1000).format('HH:mm a');
 
     document.querySelector('.time-zone').innerText = "Timezone: " + timezone;
+    document.querySelector('.temperature').innerText = temp + "°C"; 
     
     let otherDayForcast = ''
     data.daily.forEach((day, idx) => {
         if(idx == 0){
-            currentTempEl.innerHTML = `
-            <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather icon" class="w-icon">
-            <div class="other">
-                <div class="day">${day}</div>
-                <div class="temp">Night - ${day.temp.night}&#176;C</div>
-                <div class="temp">Day - ${day.temp.day}&#176;C</div>
-            </div>
-            `
+            console.log("Idk");
         }else{
             otherDayForcast += `
-            <div class="weather-forecast-item">
-                <div class="day">${day}</div>
-                <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night - ${day.temp.night}&#176;C</div>
-                <div class="temp">Day - ${day.temp.day}&#176;C</div>
-            </div>
-            `
+            <div class="weather-forecast-items">
+                <div class="day">
+                    <div class="week-day">${window.moment(day.dt*1000).format('dddd')}</div>
+                    <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">
+                    <div class="forecast-temperature">${day.temp.day}&#176;C</div>
+                </div>
+                `
         }
     })
-
     weatherForecastEl.innerHTML = otherDayForcast;
+
 }
+    
