@@ -35,8 +35,66 @@ function getWeatherData () {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            showWeatherData(data);
         })
     })
 }
 
+function showWeatherData (data){
+    let {humidity, pressure, sunrise, sunset, wind_speed} = data.current;
 
+    timezone.innerHTML = data.timezone;
+    //countryEl.innerHTML = data.lat + 'N ' + data.lon+'E'
+
+    currentWeatherItemsEl.innerHTML = 
+    `<div class="weather-item">
+        <div>Humidity</div>
+        <div>${humidity}%</div>
+    </div>
+    <div class="weather-item">
+        <div>Pressure</div>
+        <div>${pressure}</div>
+    </div>
+    <div class="weather-item">
+        <div>Wind Speed</div>
+        <div>${wind_speed}</div>
+    </div>
+    <div class="weather-item">
+        <div>Sunrise</div>
+        <div>${sunrise}</div>
+    </div>
+    <div class="weather-item">
+        <div>Sunset</div>
+        <div>${sunset}</div>
+    </div>
+    
+    
+    `;
+
+    let otherDayForcast = ''
+    data.daily.forEach((day, idx) => {
+        if(idx == 0){
+            currentTempEl.innerHTML = `
+            <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather icon" class="w-icon">
+            <div class="other">
+                <div class="day">${day}</div>
+                <div class="temp">Night - ${day.temp.night}&#176;C</div>
+                <div class="temp">Day - ${day.temp.day}&#176;C</div>
+            </div>
+            `
+        }else{
+            otherDayForcast += `
+            <div class="weather-forecast-item">
+                <div class="day">${day}</div>
+                <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - ${day.temp.night}&#176;C</div>
+                <div class="temp">Day - ${day.temp.day}&#176;C</div>
+            </div>
+            
+            `
+        }
+    })
+
+
+    weatherForecastEl.innerHTML = otherDayForcast;
+}
