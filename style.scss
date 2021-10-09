@@ -7,7 +7,7 @@
 }
 
 body{
-    background:url('https://images.unsplash.com/photo-1512923927402-a9867a68180e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+    background:url('https://images.unsplash.com/photo-1598569642686-2342adb8d4dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80');
     background-repeat: no-repeat;
     background-size:cover;
     overflow:hidden;
@@ -16,56 +16,63 @@ body{
 }
 
 .main{
-    padding: 3rem 8rem;
+    padding: 8rem 6rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
 
     .current-info {
-        text-align: end;
+        display: flex;
+        justify-content: space-between;
 
         .info-container{
-            
+
+            .w-icon{
+                height: 200px;
+            }
+
             .temperature{
-                font-size: 48px;
+                font-size: 72px;
+                text-align: center;
+                color: white;
             }
         }
 
         .place-container{
             font-size: 20px;
+            text-align: end;
+            color: white;
         }
         .weather-container{
                 display: flex;
                 flex-direction: column;
                 background: rgba(255, 255, 255, 0.555);
                 padding:20px;
-                
+                width: 300px;
+                height: 200px;
             }
     }
 }
 
 .future-forecast{
-    background: rgba(24, 24, 27, 0.575);
+    background: rgba(255, 255, 255, 0.719);
     padding: 3rem;
     position: fixed;
     bottom: 0;
-    color:white;
     width: 100%;
+    overflow-y: hidden;
+    height: 35vh;
+    display: flex;
     align-items: center;
     justify-content: center;
-    overflow-y: hidden;
 
     .weather-forecast{
-
+        
         .weather-forecast-items{
             display: flex;
-            justify-content: center;
-            
 
             .day{
                 text-align: center;
-                width: 200px;
-                border-right: white 1px solid;
-                    &:nth-child(7){
-                        border: none;
-                    }
+                width: 150px;
 
                 .week-day{
                     padding: 1rem 0 0 0;
@@ -79,11 +86,12 @@ body{
 
             }
         }
-    }
+        
         .w-icon{
             height: 100px;
         }
     }
+}
 
 
 
