@@ -4,6 +4,8 @@
     box-sizing: border-box;
     margin:0;
     padding:0;
+    font-weight: 100;
+    //fit to 1920x1080
 }
 
 body{
@@ -16,7 +18,7 @@ body{
 }
 
 .main{
-    padding: 8rem 6rem;
+    padding: 5rem 9rem;
     background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
 
@@ -27,39 +29,162 @@ body{
         .info-container{
 
             .w-icon{
-                height: 200px;
+                height: 400px;
+                margin-top: -70px;
+
+                @media screen and (max-width:1536px) {
+                    height: 300px;
+                }
+                @media screen and (max-width:1367px) {
+                    height: 250px;
+                }
+                @media screen and (max-width: 415px) {
+                    height: fit-content;
+                }
+                @media screen and (max-width: 361px) {
+                    height: 100px;
+                }
             }
 
             .temperature{
-                font-size: 72px;
+                font-size: 120px;
+                font-weight: 200;
                 text-align: center;
                 color: white;
+
+                @media screen and (max-width:1367px) {
+                    font-size: 90px;
+                }
+                @media screen and (max-width:1025px) {
+                    font-size: 60px;
+                }
+                @media screen and (max-width: 415px) {
+                    font-size: 42px;
+                    padding-bottom: 1rem;
+                }
+                @media screen and (max-width: 361px) {
+                    font-size: 42px;
+                    padding-bottom: 1rem;
+                }
+            }
+            @media screen and (max-width: 415px) {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: flex-end;
+                height: 100px;
+            }
+            @media screen and (max-width: 361px) {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: flex-end;
+                height: 100px;
             }
         }
 
         .place-container{
-            font-size: 20px;
+            font-size: 34px;
             text-align: end;
             color: white;
+
+            .time{
+                font-size: 64px;
+                font-weight: 200;
+
+                @media screen and (max-width:1025px) {
+                    font-size: 40px;
+                }
+                @media screen and (max-width: 361px) {
+                    font-size: 24px;
+                    font-weight: 600;
+                }
+            }
+
+            .text{
+                @media screen and (max-width: 415px) {
+                    font-weight: 300;
+                }
+                @media screen and (max-width: 361px) {
+                    font-weight: 300;
+                }
+            }
+
+            @media screen and (max-width:1536px) {
+                font-size: 30px;
+            }
+            @media screen and (max-width:1367px) {
+                font-size: 24px;
+            }
+            @media screen and (max-width:1025px) {
+                font-size: 22px;
+            }
+            @media screen and (max-width: 415px) {
+                font-size: 18px;
+                    background: rgba(255, 255, 255, 0.6);
+                    color: black;
+                    font-weight: 600;
+            }
+            @media screen and (max-width: 361px) {
+                    font-size: 14px;
+                    background: rgba(255, 255, 255, 0.6);
+                    color: black;
+                    font-weight: 600;
+            }
         }
+
         .weather-container{
                 display: flex;
                 flex-direction: column;
                 background: rgba(255, 255, 255, 0.555);
-                padding:20px;
-                width: 300px;
-                height: 200px;
+                padding: 20px;
+                font-size: 34px;
+                height: fit-content;
+
+                .weather-item{
+                    font-weight: 200;
+                }
+
+                @media screen and (max-width:1536px) {
+                    font-size: 30px;
+                }
+                @media screen and (max-width:1367px) {
+                    font-size: 26px;
+                }
+                @media screen and (max-width:1025px) {
+                    font-size: 22px;
+                }
+                @media screen and (max-width: 415px) {
+                    font-size: 14px;
+                }
+                @media screen and (max-width: 361px) {
+                    font-size: 12px;
+                }
             }
+        @media screen and (max-width: 415px) {
+                flex-direction: column;
+        }    
+        @media screen and (max-width: 361px) {
+                flex-direction: column;
+        }
+
+    }
+
+    @media screen and (max-width:1025px) {
+        padding: 3rem 3rem;
+    }
+    @media screen and (max-width:769px) {
+        padding: 4rem 2rem;
+    }
+    @media screen and (max-width: 415px) {
+        padding: 1rem;
     }
 }
 
 .future-forecast{
-    background: rgba(255, 255, 255, 0.719);
+    background: rgba(255, 255, 255, 0.7);
     padding: 3rem;
     position: fixed;
     bottom: 0;
     width: 100%;
-    overflow-y: hidden;
     height: 35vh;
     display: flex;
     align-items: center;
@@ -72,82 +197,90 @@ body{
 
             .day{
                 text-align: center;
-                width: 150px;
+                width: 250px;
 
                 .week-day{
-                    padding: 1rem 0 0 0;
-                    font-size: 20px;
+                    padding: 3rem 0 0 0;
+                    font-size: 36px;
+                    font-weight: 400;
+
+                    @media screen and (max-width:1536px) {
+                        font-size: 30px;
+                    }
+                    @media screen and (max-width:1367px) {
+                        font-size: 26px;
+                    }
+                    @media screen and (max-width:1025px) {
+                        font-size: 22px;
+                    }
+                    @media screen and (max-width:769px) {
+                        font-size: 18px;
+                    }
+                    @media screen and (max-width: 415px) {
+                        font-size: 14px;
+                    }
                 }
 
                 .forecast-temperature{
-                    padding: 0 0 1rem 0;
-                    font-size: 18px;
+                    padding: 0 0 3rem 0;
+                    font-size: 32px;
+                    font-weight: 400;
+
+                    @media screen and (max-width:1536px) {
+                        font-size: 28px;
+                    }
+                    @media screen and (max-width:1367px) {
+                        font-size: 24px;
+                    }
+                    @media screen and (max-width:1025px) {
+                        font-size: 18px;
+                    }
+                    @media screen and (max-width: 415px) {
+                        font-size: 14px;
+                    }
+                }
+
+                @media screen and (max-width:1536px) {
+                    width: 200px;
+                }
+                @media screen and (max-width:1367px) {
+                    width: 170px;
+                }
+                @media screen and (max-width:1025px) {
+                    width: 140px;
+                }
+                @media screen and (max-width:769px) {
+                    width: fit-content;
+                }
+                @media screen and (max-width: 361px) {
+                    width: fit-content;
                 }
 
             }
         }
         
         .w-icon{
-            height: 100px;
+            height: 200px;
+
+            @media screen and (max-width:1536px) {
+                height: 150px;
+            }
+            @media screen and (max-width:1367px) {
+                height: 100px;
+            }
+            @media screen and (max-width: 415px) {
+                height: 90px;
+            }
         }
     }
-}
-
-
-
-/*
-@media only screen and  (max-width:730px){
-    
-    .main{
-        padding: 20px;
+    @media screen and (max-width: 415px) {
+        overflow: scroll;
+        width: 100vw;
+        padding-left: 360px;
     }
-    
-    .future-forecast{
-        justify-content: start;
-        align-items: none;
-        overflow-y: scroll;
-    }
-
-    .future-forecast .today .temp{
-        font-size: 16px;
-    }
-
-    .date-container .time{
-        font-size: 50px;
-    }
-
-    .date-container #am-pm{
-        font-size: 20px;
-    }
-
-    .date-container .date{
-        font-size: 20px;
-    }
-
-    .place-container{
-        text-align: end;
-        margin-top: 15px;
-    }
-
-    .place-container .time-zone{
-        font-size: 20px;
-    }
-
-    .current-info .others{
-        padding: 12px;
-    }
-
-    .current-info .others .weather-item{
-        font-size: 14px;
-    }
-
-}
-
-@media only screen and (max-width: 1400px){
-    .future-forecast{
-        justify-content: start;
-        align-items: none;
-        overflow-x: scroll;
+    @media screen and (max-width: 361px) {
+        overflow: scroll;
+        width: 100vw;
+        padding-left: 310px;
     }
 }
-*/
